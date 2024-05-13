@@ -45,11 +45,11 @@ class _ListViewScreenState extends State<ListViewScreen> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             buildListView2(),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(
@@ -63,8 +63,8 @@ class _ListViewScreenState extends State<ListViewScreen> {
                         colorCodes.add(200 - countAddItem * 20);
                       });
                     },
-                    child: Text('Add items !!!')),
-                SizedBox(
+                    child: const Text('Add items !!!')),
+                const SizedBox(
                   width: 20,
                 ),
                 ElevatedButton(
@@ -72,22 +72,22 @@ class _ListViewScreenState extends State<ListViewScreen> {
                       setState(() {
                         if (countAddItem != 0) {
                           countAddItem--;
-                          entries.removeAt(0);
-                          colorCodes.removeAt(0);
+                          entries.removeLast();
+                          colorCodes.removeLast();
                         }
                       });
                     },
-                    child: Text('Remove items !!!')),
+                    child: const Text('Remove items !!!')),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text('Back to Screen 1')),
+                child: const Text('Back to Screen 1')),
           ],
         ),
       ),
@@ -101,10 +101,28 @@ class _ListViewScreenState extends State<ListViewScreen> {
   List<int> colorCodes = <int>[600, 500, 400, 300, 200];
 
   Widget buildListView2() {
-    //ListView.builder
+    //ListView.builder lấy theo dữ liệu động
+    // return Container(
+    //   height: 150,
+    //   child: ListView.builder(
+    //     padding: const EdgeInsets.all(8),
+    //     itemCount: entries.length,
+    //     itemBuilder: (BuildContext context, int index) {
+    //       return Container(
+    //         height: 50,
+    //         color: Colors.green[colorCodes[index]],
+    //         child: Center(
+    //           child: Text('Items ${entries[index]}'),
+    //         ),
+    //       );
+    //     },
+    //   ),
+    // );
+
+    // ListView.separated
     return Container(
-      height: 150,
-      child: ListView.builder(
+      height: 200,
+      child: ListView.separated(
         padding: const EdgeInsets.all(8),
         itemCount: entries.length,
         itemBuilder: (BuildContext context, int index) {
@@ -116,23 +134,10 @@ class _ListViewScreenState extends State<ListViewScreen> {
             ),
           );
         },
+        separatorBuilder: (BuildContext context, int index) {
+          return const Divider();
+        },
       ),
     );
-
-    // ListView.separated
-    // return ListView.separated(
-    //   padding: const EdgeInsets.all(8),
-    //   itemCount: entries.length,
-    //   itemBuilder: (BuildContext context, int index) {
-    //     return Container(
-    //       height: 50,
-    //       color: Colors.amber[colorCodes[index]],
-    //       child: Center(
-    //         child: Text('Entry ${entries[index]}'),
-    //       ),
-    //     );
-    //   },
-    //   separatorBuilder: (BuildContext context, int index) => const Divider(),
-    // );
   }
 }

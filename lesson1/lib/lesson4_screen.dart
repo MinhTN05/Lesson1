@@ -10,10 +10,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: _title,
-      home: MyStatelessWidget(),
+      home: const MyStatelessWidget(),
+      theme: ThemeData(
+          dividerTheme: const DividerThemeData(
+        thickness: 1,
+        color: Colors.brown,
+        // indent và endIndent thay đổi kích thước cửa gạch sau mỗi items
+        indent: 10,
+        endIndent: 10,
+      )),
     );
   }
 }
@@ -29,12 +37,12 @@ class MyStatelessWidget extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+          padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
           child: Center(
             child: Column(
               children: <Widget>[
                 buildStack(),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Expanded(
@@ -56,7 +64,7 @@ class MyStatelessWidget extends StatelessWidget {
                           width: 100,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 100,
                       ),
                       Flexible(
@@ -76,7 +84,7 @@ class MyStatelessWidget extends StatelessWidget {
                   ),
                 ),
                 buildDecorationText(),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
@@ -86,7 +94,7 @@ class MyStatelessWidget extends StatelessWidget {
                         return ListViewScreen();
                       }));
                     },
-                    child: Text('Go to Sreen 2')),
+                    child: const Text('Go to Sreen 2')),
               ],
             ),
           ),
