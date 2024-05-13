@@ -91,6 +91,13 @@ class _ListViewScreenState extends State<ListViewScreen> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          //add
+        },
+        backgroundColor: Colors.green,
+        child: const Icon(Icons.navigation),
+      ),
     );
   }
 
@@ -126,11 +133,18 @@ class _ListViewScreenState extends State<ListViewScreen> {
         padding: const EdgeInsets.all(8),
         itemCount: entries.length,
         itemBuilder: (BuildContext context, int index) {
-          return Container(
-            height: 50,
-            color: Colors.green[colorCodes[index]],
-            child: Center(
-              child: Text('Items ${entries[index]}'),
+          return InkWell(
+            onTap: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('Items ${entries[index]}')),
+              );
+            },
+            child: Container(
+              height: 50,
+              color: Colors.green[colorCodes[index]],
+              child: Center(
+                child: Text('Items ${entries[index]}'),
+              ),
             ),
           );
         },
