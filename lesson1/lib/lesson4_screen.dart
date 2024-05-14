@@ -16,8 +16,7 @@ class MyApp extends StatelessWidget {
       initialRoute: ROUTE_HOME_VIEW,
       routes: {
         ROUTE_HOME_VIEW: (context) => const MyStatelessWidget(),
-        ROUTE_LIST_VIEW: (context) =>
-            ListViewScreen('Dữ liệu truyền từ Screen 1 Ahihi'),
+        ROUTE_LIST_VIEW: (context) => ListViewScreen(''),
       },
       theme: ThemeData(
           dividerTheme: const DividerThemeData(
@@ -114,8 +113,9 @@ class MyStatelessWidget extends StatelessWidget {
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.red)),
                   onPressed: () async {
-                    var result =
-                        await Navigator.pushNamed(context, ROUTE_LIST_VIEW);
+                    var result = await Navigator.pushNamed(
+                        context, ROUTE_LIST_VIEW,
+                        arguments: 'Dữ liệu truyền từ Screen 1 Ahihi');
 
                     ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text(result.toString())));
