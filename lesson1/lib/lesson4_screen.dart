@@ -13,10 +13,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: _title,
-      home: const MyStatelessWidget(),
+      initialRoute: ROUTE_HOME_VIEW,
       routes: {
+        ROUTE_HOME_VIEW: (context) => const MyStatelessWidget(),
         ROUTE_LIST_VIEW: (context) =>
-            ListViewScreen('Dữ liệu truyền từ Screen 1'),
+            ListViewScreen('Dữ liệu truyền từ Screen 1 Ahihi'),
       },
       theme: ThemeData(
           dividerTheme: const DividerThemeData(
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+const ROUTE_HOME_VIEW = '/';
 const ROUTE_LIST_VIEW = '/list_view_screen';
 
 class MyStatelessWidget extends StatelessWidget {
