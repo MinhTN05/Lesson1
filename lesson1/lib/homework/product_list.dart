@@ -167,6 +167,8 @@ class _ProductItemState extends State<ProductItem> {
                   child: Text(
                     product.name,
                     maxLines: 1,
+                    //Giúp cho định dạng chữ dài quá thì để ... cuối
+                    overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
                         color: Colors.white,
                         fontStyle: FontStyle.normal,

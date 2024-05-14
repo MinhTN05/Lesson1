@@ -91,7 +91,7 @@ class MyStatelessWidget extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (BuildContext context) {
-                        return ListViewScreen();
+                        return ListViewScreen('Dữ liệu truyền từ Screen 1');
                       }));
                     },
                     child: const Text('Go to Sreen 2')),
