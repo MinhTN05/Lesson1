@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ListViewScreen extends StatefulWidget {
-
   String _sData;
 
-  ListViewScreen(this._sData, {Key? key}) : super(key : key);
-
+  ListViewScreen(this._sData, {Key? key}) : super(key: key);
 
   @override
   State<ListViewScreen> createState() => _ListViewScreenState(_sData);
@@ -95,7 +93,7 @@ class _ListViewScreenState extends State<ListViewScreen> {
             ),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.pop(context, entries);
                 },
                 child: const Text('Back to Screen 1')),
           ],
