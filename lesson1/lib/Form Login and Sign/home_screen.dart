@@ -21,7 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text('Home Page'),
       ),
       body: Container(
-        child: Text('Bạn đã đăng nhập thành công. Tên account là: ${email}'),
+        child: Center(
+          child: Text('Bạn đã đăng nhập thành công. Tên account là: ${email}'),
+        ),
       ),
     );
   }
