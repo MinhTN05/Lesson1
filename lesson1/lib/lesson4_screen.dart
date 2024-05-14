@@ -14,6 +14,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: _title,
       home: const MyStatelessWidget(),
+      routes: {
+        ROUTE_LIST_VIEW: (context) =>
+            ListViewScreen('Dữ liệu truyền từ Screen 1'),
+      },
       theme: ThemeData(
           dividerTheme: const DividerThemeData(
         thickness: 1,
@@ -25,6 +29,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+const ROUTE_LIST_VIEW = '/list_view_screen';
 
 class MyStatelessWidget extends StatelessWidget {
   const MyStatelessWidget({Key? key}) : super(key: key);
@@ -88,16 +94,32 @@ class MyStatelessWidget extends StatelessWidget {
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () async {
-                      var result = await Navigator.push(context,
-                          MaterialPageRoute(builder: (BuildContext context) {
-                        return ListViewScreen('Dữ liệu truyền từ Screen 1');
-                      }));
+                  onPressed: () async {
+                    var result = await Navigator.push(context,
+                        MaterialPageRoute(builder: (BuildContext context) {
+                      return ListViewScreen('Dữ liệu truyền từ Screen 1');
+                    }));
 
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(result.toString())));
-                    },
-                    child: const Text('Go to Sreen 2')),
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(result.toString())));
+                  },
+                  child: const Text('Go to Sreen 2'),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.red)),
+                  onPressed: () async {
+                    var result =
+                        await Navigator.pushNamed(context, ROUTE_LIST_VIEW);
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(result.toString())));
+                  },
+                  child: const Text('Go to Sreen 2'),
+                ),
               ],
             ),
           ),
