@@ -38,10 +38,26 @@ class MyStatelessWidget extends StatelessWidget {
                     color: Colors.amber,
                     width: 100,
                   )),
-              Container(
-                color: Colors.blue,
-                height: 200,
-                // width: 100,
+              Row(
+                children: <Widget>[
+                  Expanded(
+                      flex: 2,
+                      child: Container(
+                        color: Colors.deepOrangeAccent,
+                        height: 100,
+                      )),
+                  Container(
+                    color: Colors.green,
+                    height: 100,
+                    width: 50,
+                  ),
+                  Flexible(
+                      flex: 3,
+                      child: Container(
+                        color: Colors.deepOrangeAccent,
+                        height: 100,
+                      )),
+                ],
               ),
               Flexible(
                   flex: 2,
