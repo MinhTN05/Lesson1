@@ -31,6 +31,7 @@ class MyPage extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.blue,
+        centerTitle: true,
       ),
       body: Container(
         child: Padding(
