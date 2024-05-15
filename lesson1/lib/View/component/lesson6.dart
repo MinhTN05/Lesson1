@@ -24,30 +24,38 @@ class MyStatelessWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:
-            const Text('MinhTN', style: TextStyle(color: Colors.white)),
+        title: const Text('MinhTN', style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.blue,
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            Container(
-              color: Colors.blue,
-              height: 100,
-              width: 100,
-            ),
-            Expanded(
-                child: Container(
-              color: Colors.amber,
-              width: 100,
-            )),
-            Container(
-              color: Colors.blue,
-              height: 100,
-              width: 100,
-            ),
-          ],
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                  flex: 1,
+                  child: Container(
+                    color: Colors.amber,
+                    width: 100,
+                  )),
+              Container(
+                color: Colors.blue,
+                height: 200,
+                // width: 100,
+              ),
+              Expanded(
+                  flex: 2,
+                  child: Container(
+                    color: Colors.red,
+                    width: 100,
+                  )),
+              Container(
+                color: Colors.blue,
+                height: 100,
+                // width: 100,
+              ),
+            ],
+          ),
         ),
       ),
     );
