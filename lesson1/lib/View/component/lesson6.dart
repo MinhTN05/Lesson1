@@ -70,6 +70,38 @@ class MyStatelessWidget extends StatelessWidget {
                 height: 100,
                 // width: 100,
               ),
+              const SizedBox(
+                height: 10,
+              ),
+              Stack(
+                clipBehavior: Clip.none,
+                // chỉnh sửa các thay đổi chồng lên nhau trong Stack
+                // alignment: Alignment.topLeft,
+                children: <Widget>[
+                  Container(
+                    width: 150,
+                    height: 150,
+                    color: Colors.red,
+                  ),
+                  Container(
+                    width: 125,
+                    height: 125,
+                    color: Colors.green,
+                  ),
+                  Positioned(
+                    bottom: -20,
+                    left: -20,
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      color: Colors.yellow,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
             ],
           ),
         ),
