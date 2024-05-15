@@ -32,7 +32,7 @@ class MyStatelessWidget extends StatelessWidget {
         child: Center(
           child: Column(
             children: <Widget>[
-              Expanded(
+              Flexible(
                   flex: 1,
                   child: Container(
                     color: Colors.amber,
@@ -43,7 +43,7 @@ class MyStatelessWidget extends StatelessWidget {
                 height: 200,
                 // width: 100,
               ),
-              Expanded(
+              Flexible(
                   flex: 2,
                   child: Container(
                     color: Colors.red,
