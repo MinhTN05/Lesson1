@@ -15,19 +15,52 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  Drawer initDrawer(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          const DrawerHeader(
+            decoration: BoxDecoration(
+              color: Color(0xFF9C27B0),
+            ),
+            child: Text('Drawer Header'),
+          ),
+          ListTile(
+            title: const Text('Item1'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: const Text('Item2'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        drawer: Builder(
+          builder: (BuildContext context) {
+            return initDrawer(context);
+          },
+        ),
         appBar: AppBar(
-          leading: IconButton(
-            icon: const Icon(
-              Icons.menu,
-              color: Colors.white,
-            ),
-            onPressed: () {},
-          ),
+          // leading: IconButton(
+          //   icon: const Icon(
+          //     Icons.menu,
+          //     color: Colors.white,
+          //   ),
+          //   onPressed: () {},
+          // ),
           title: Text("My shop"),
           backgroundColor: const Color(0xFF9C27B0),
           actions: [
