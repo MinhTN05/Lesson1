@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main () {
+void main() {
   runApp(MyApp());
 }
 
@@ -10,12 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     var myData = MyModel();
 
-    // return Provider<MyModel>(
-    //   create: (context) => myData,
-    //   child: (),
-    // );
-
-    return Provider<MyModel>(
+    return ChangeNotifierProvider<MyModel>(
       create: (BuildContext context) {
         return myData;
       },
@@ -58,10 +53,15 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyModel {
+class MyModel extends ChangeNotifier {
   String text = "Hello";
 
   void doSomething() {
-    text = "World";
+    if (text == "Hello") {
+      text = "World";
+    } else {
+      text = "Hello";
+    }
+    notifyListeners();
   }
 }
