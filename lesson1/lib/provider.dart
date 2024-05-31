@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     var myData = MyModel();
 
-    return ChangeNotifierProvider<MyModel>(
+    return ChangeNotifierProvider <MyModel>(
       create: (BuildContext context) {
         return myData;
       },
